@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos CSS aqui */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/Bold\ Gradient\ Geometric\ Technology\ Business\ Logo\ \ \(1\).png);
+        }
+
+        .header {
+            background-color: #4caf50;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ccccccb7;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .container button {
+            background-color: #4caf50;
+            border: none;
+            color: #fff;
+            padding: 10px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="header">
+        <h1>JS-Innovatech.com.br</h1>
+    </div>
+
+    <div class="container">
+        <h2>Cadastro</h2>
+        <form id="registerForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        // Função para verificar se o usuário já está cadastrado
+        function checkExistingUser() {
+            var user = localStorage.getItem('user');
+
+            if (user) {
+                // Usuário já cadastrado, exibir alerta
+                alert('Usuário já cadastrado. Por favor, faça login.');
+                return true;
+            }
+            return false;
+        }
+
+        // Função para salvar os dados de cadastro
+        function saveRegistration(name, email, password) {
+            var user = {
+                name: name,
+                email: email,
+                password: password
+            };
+
+            // Salvar os dados no localStorage
+            localStorage.setItem('user', JSON.stringify(user));
+        }
+
+        // Evento de submit do formulário
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impedir o envio do formulário
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Verificar se o usuário já está cadastrado
+            if (checkExistingUser()) {
+                return; // Se usuário já estiver cadastrado, interromper o processo
+            }
+
+            // Se o usuário não estiver cadastrado, salvar os dados de cadastro
+            saveRegistration(name, email, password);
+
+            // Limpar os campos do formulário
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+
+            // Exibir mensagem de sucesso
+            alert('Cadastro realizado com sucesso!');
+        });
+    </script>
+</body>
+</html>
