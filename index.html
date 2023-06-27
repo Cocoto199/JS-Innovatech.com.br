@@ -13,7 +13,7 @@
         }
         
         header {
-            background-color:#333 ;
+            background-color:#333;
             color: #fff;
             padding: 20px;
             display: flex;
@@ -24,7 +24,7 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            border: solid 3px #ccc;
+            border: solid 2px #ccc;
             margin-right: 20px;
         }
         
@@ -42,10 +42,11 @@
             padding: 6px;
             font-size: 16px;
             flex: 1;
+            margin-left: auto;
         }
         
         .search-bar button {
-            background-color: #f0c14b;
+            background-color: black;
             border: none;
             outline: none;
             padding: 8px 12px;
@@ -62,7 +63,7 @@
             padding: 0;
             display: flex;
             justify-content: space-around;
-            background-color: #131921;
+            background-color: rgba(255, 255, 255, 0.152);
         }
         
         nav ul li {
@@ -109,8 +110,8 @@
         /* Estilos adicionados */
         header h4 {
             position: absolute;
-            left: 20px;
-            top: 8%;
+            left: 300px;
+            top: 3%;
             transform: translateY(-40%);
         }
         
@@ -137,14 +138,23 @@
 
             }
         }
+
+header a{
+    position: absolute;
+            left: 320px;
+            top: 9%;
+            transform: translateY(-40%);
+            color: white;
+}
+
     </style>
     <title>Document</title>
 </head>
 <body>
     <header>
         <div class="logo">JS-Innovatech.com.br</div>
-        <h4>Olá, faça login-
-            <a href="login.html">ou se cadastre</a>
+        <h4>Olá, faça Seu login-</H4>
+            <a href="login.html">ou Cadastre-se</a>
         </h4>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Pesquisar...">
